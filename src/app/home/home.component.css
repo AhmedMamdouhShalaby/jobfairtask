@@ -1,0 +1,22 @@
+.table>thead {
+  --bs-table-bg: var(--main-color);
+}
+
+th {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.line {
+  box-shadow: 0 23px 17px rgba(0, 0, 0, 0.1), 0 18px 13px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+
+}
+
+@media screen and (max-width: 992px) {
+
+  th {
+    font-size: 18px;
+    font-weight: 400;
+  }
+}

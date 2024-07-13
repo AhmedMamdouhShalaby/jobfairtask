@@ -1,0 +1,32 @@
+<section class="py-5">
+  <div class="container">
+    <div class="searchinput">
+      <input type="text" class="form-control rounded rounded-5 p-3 fs-5" placeholder="Search..." name="" id=""
+        [(ngModel)]="searchTerm">
+    </div>
+    <table class="table text-center shadow table-striped mt-4">
+      <thead class="">
+        <tr>
+          <th class="text-capitalize text-white">Name</th>
+          <th class="text-capitalize text-white">Total Transaction Amount</th>
+          <th class="text-capitalize text-white">Transactions per day</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let customer of customers | search:searchTerm">
+          <td class="fw-semibold">{{ customer.name }}</td>
+          <td class="fw-semibold">{{ customer.totalAmount }}</td>
+          <td class="fw-semibold">
+            <button class="btn btn-primary" (click)="get(customer.id, customer.name)">View</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <section class="charts">
+      <div class="line p-2" *ngIf="showLineChart; else noChart" [chart]="lineChart"></div>
+      <ng-template #noChart>
+        <p class="text-center fs-3 fw-bold">Please click on View to show transactions graph.</p>
+      </ng-template>
+    </section>
+  </div>
+</section>
